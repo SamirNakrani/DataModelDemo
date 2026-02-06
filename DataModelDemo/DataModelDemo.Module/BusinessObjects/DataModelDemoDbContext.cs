@@ -19,6 +19,7 @@ namespace DataModelDemo.Module.BusinessObjects
         public DbSet<Department> Departments { get; set; }
 
         public DbSet<DemoTask> DemoTasks { get; set; }
+        public DbSet<Position> Positions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

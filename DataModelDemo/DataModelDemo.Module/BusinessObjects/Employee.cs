@@ -58,6 +58,7 @@ namespace DataModelDemo.Module.BusinessObjects
         public virtual string Notes { get; set; }
         public virtual Department Department { get; set; }
         public virtual IList<DemoTask> DemoTasks { get; set; } = new ObservableCollection<DemoTask>();
+        public virtual Position Position { get; set; }
 
     }
     public enum TitleOfCourtesy
