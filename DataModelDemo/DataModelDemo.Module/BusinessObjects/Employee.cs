@@ -50,7 +50,7 @@ namespace DataModelDemo.Module.BusinessObjects
         [FieldSize(255)]
         public virtual String Email { get; set; }
 
-        [RuleRegularExpression(@"(((http|https)\://)[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(:[a-zA-Z0-9]*)?/?([a-zA-Z0-9\-\._\?\,\'/\\\+&amp;amp;%\$#\=~])*)|([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})", CustomMessageTemplate = @"Invalid ""Web Page Address"".")]
+        [RuleRegularExpression(@"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$",CustomMessageTemplate = @"Invalid website URL.")]
         public virtual string WebPageAddress { get; set; }
 
         [StringLength(4096)]
