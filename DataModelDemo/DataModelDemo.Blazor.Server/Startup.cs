@@ -54,6 +54,7 @@ namespace DataModelDemo.Blazor.Server
                         if (Configuration.GetConnectionString("ConnectionString") != null)
                         {
                             connectionString = Configuration.GetConnectionString("ConnectionString");
+
                         }
 #if EASYTEST
                         if(Configuration.GetConnectionString("EasyTestConnectionString") != null) {
@@ -61,7 +62,11 @@ namespace DataModelDemo.Blazor.Server
                         }
 #endif
                         ArgumentNullException.ThrowIfNull(connectionString);
-                        options.UseConnectionString(connectionString);
+                        options.UseInMemoryDatabase("InMemory");
+                        options.UseChangeTrackingProxies();
+                        options.UseObjectSpaceLinkProxies();
+                        options.UseLazyLoadingProxies();
+                        // options.UseConnectionString(connectionString);
                     })
                     .AddNonPersistent();
             });

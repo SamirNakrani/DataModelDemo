@@ -1,4 +1,5 @@
-﻿using DevExpress.Data.Filtering;
+﻿using DataModelDemo.Module.BusinessObjects;
+using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.EF;
 using DevExpress.ExpressApp.Updating;
@@ -18,6 +19,17 @@ namespace DataModelDemo.Module.DatabaseUpdate
         public override void UpdateDatabaseAfterUpdateSchema()
         {
             base.UpdateDatabaseAfterUpdateSchema();
+            Employee employeeAdmin = ObjectSpace.FirstOrDefault<Employee>(x => x.FirstName == "Mary" && x.LastName == "Tellitson");
+            if (employeeAdmin == null)
+            {
+                employeeAdmin = ObjectSpace.CreateObject<Employee>();
+                employeeAdmin.FirstName = "Admin";
+                employeeAdmin.Email = "Admin@Test.com";
+                employeeAdmin.Birthday = new DateTime(2003, 08, 04);
+            }
+
+            ObjectSpace.CommitChanges(); //Uncomment this line to persist created object(s).
+            ObjectSpace.CommitChanges(); //Uncomment this line to persist created object(s).
             //string name = "MyName";
             //EntityObject1 theObject = ObjectSpace.FirstOrDefault<EntityObject1>(u => u.Name == name);
             //if(theObject == null) {
