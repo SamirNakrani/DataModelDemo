@@ -5,6 +5,7 @@ using DevExpress.Persistent.BaseImpl.EF;
 using DevExpress.Persistent.Validation;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -56,6 +57,8 @@ namespace DataModelDemo.Module.BusinessObjects
         [StringLength(4096)]
         public virtual string Notes { get; set; }
         public virtual Department Department { get; set; }
+        public virtual IList<DemoTask> DemoTasks { get; set; } = new ObservableCollection<DemoTask>();
+
     }
     public enum TitleOfCourtesy
     {
