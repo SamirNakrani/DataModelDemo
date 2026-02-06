@@ -2,6 +2,7 @@
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl.EF;
+using DevExpress.XtraPrinting.Native;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,6 +31,7 @@ namespace DataModelDemo.Module.BusinessObjects
 
         private TaskStatus status;
         public virtual IList<Employee> Employees { get; set; } = new ObservableCollection<Employee>();
+        public virtual Priority Priority { get; set; }
 
         public virtual TaskStatus Status
         {
@@ -62,6 +64,10 @@ namespace DataModelDemo.Module.BusinessObjects
         {
             isLoaded = true;
         }
+        public override void OnCreated()
+        {
+            Priority = Priority.Normal;
+        }
 
     }
     public enum TaskStatus
@@ -78,6 +84,12 @@ namespace DataModelDemo.Module.BusinessObjects
         Completed
     }
 
+    public enum Priority
+    {
+        Low = 0,
+        Normal = 1,
+        High = 2
+    }
 
 }
 

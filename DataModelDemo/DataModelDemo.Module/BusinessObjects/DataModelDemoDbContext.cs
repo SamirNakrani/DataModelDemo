@@ -20,6 +20,8 @@ namespace DataModelDemo.Module.BusinessObjects
 
         public DbSet<DemoTask> DemoTasks { get; set; }
         public DbSet<Position> Positions { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
