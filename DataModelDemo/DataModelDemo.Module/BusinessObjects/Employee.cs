@@ -58,7 +58,10 @@ namespace DataModelDemo.Module.BusinessObjects
         public virtual string Notes { get; set; }
         public virtual Department Department { get; set; }
         public virtual IList<DemoTask> DemoTasks { get; set; } = new ObservableCollection<DemoTask>();
+        public virtual Position Position { get; set; }
 
+        [DataSourceProperty("Department.Employees", DataSourcePropertyIsNullMode.SelectAll), DataSourceCriteria("Position.Title = 'Manager'")]
+        public virtual Employee Manager { get; set; }
     }
     public enum TitleOfCourtesy
     {

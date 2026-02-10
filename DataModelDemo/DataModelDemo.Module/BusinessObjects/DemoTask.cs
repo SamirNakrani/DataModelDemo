@@ -2,6 +2,7 @@
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl.EF;
+using DevExpress.XtraPrinting.Native;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -100,6 +101,12 @@ namespace DataModelDemo.Module.BusinessObjects
         High
     }
 
+    public enum Priority
+    {
+        Low = 0,
+        Normal = 1,
+        High = 2
+    }
 
 }
 
