@@ -1,10 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application>
-  <Options UIType="TabbedMDI"
-         FormStyle="Ribbon"
-         RestoreTabbedMdiLayout="True"
-         ShowTabImage="True"
-	 VirtualScrollingEnabled="True">
-  </Options>
+  <ActionDesign>
+    <Actions>
+      <Action Id="DemoTask.MarkCompleted" ValidationContexts="MarkCompleted" />
+    </Actions>
+  </ActionDesign>
   <NavigationItems NavigationStyle="Accordion" />
+  <Options UIType="TabbedMDI" FormStyle="Ribbon" RestoreTabbedMdiLayout="True" ShowTabImage="True" VirtualScrollingEnabled="True" />
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="25.2.3.0" IsNewNode="True" />
+  </SchemaModules>
+  <Validation>
+    <Rules>
+      <RuleCriteria Id="@32c26469-bf56-4d46-a69b-70f3fbe87a64" Criteria="Status != 'NotStarted'" TargetType="DataModelDemo.Module.BusinessObjects.DemoTask" TargetContextIDs="Save" IsNewNode="True" />
+    </Rules>
+  </Validation>
 </Application>
