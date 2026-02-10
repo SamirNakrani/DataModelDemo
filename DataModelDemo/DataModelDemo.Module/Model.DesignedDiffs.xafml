@@ -23,4 +23,38 @@
   <SchemaModules>
     <SchemaModule Name="SystemModule" Version="25.2.3.0" IsNewNode="True" />
   </SchemaModules>
+  <Views>
+    <DetailView Id="Employee_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="32.61231281198003">
+            <LayoutGroup Id="Employee" RelativeSize="100">
+              <LayoutGroup Id="Employee_col1" RelativeSize="49.95083579154375">
+                <LayoutItem Id="FirstName" RelativeSize="20" />
+                <LayoutItem Id="LastName" RelativeSize="15" />
+                <LayoutItem Id="MiddleName" RelativeSize="15" />
+                <LayoutItem Id="Birthday" RelativeSize="15" />
+                <LayoutItem Id="TitleOfCourtesy" RelativeSize="15" />
+                <LayoutItem Id="FullName" ViewItem="FullName" Index="5" RelativeSize="20" IsNewNode="True" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Employee_col2" RelativeSize="50.04916420845625">
+                <LayoutItem Id="DisplayName" RelativeSize="20" />
+                <LayoutItem Id="Email" RelativeSize="15" />
+                <LayoutItem Id="WebPageAddress" RelativeSize="15" />
+                <LayoutItem Id="Department" RelativeSize="15" />
+                <LayoutItem Id="Manager" Index="4" RelativeSize="15" />
+                <LayoutItem Id="Position" ViewItem="Position" Index="5" RelativeSize="20" IsNewNode="True" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" RelativeSize="33.61064891846922">
+            <LayoutItem Id="Notes" RelativeSize="100" />
+          </LayoutGroup>
+          <LayoutGroup Id="DemoTasks_Group" Direction="Vertical" RelativeSize="33.77703826955075">
+            <LayoutItem Id="DemoTasks" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
 </Application>
