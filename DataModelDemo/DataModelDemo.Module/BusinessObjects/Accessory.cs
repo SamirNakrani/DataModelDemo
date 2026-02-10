@@ -1,9 +1,7 @@
 ﻿using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl.EF;
-using DevExpress.Persistent.Validation;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +9,10 @@ using System.Threading.Tasks;
 namespace DataModelDemo.Module.BusinessObjects
 {
     [DefaultClassOptions]
-    [DefaultProperty(nameof(Title))]
-    public class Position : BaseObject
+    public class Accessory : BaseObject
     {
-        [RuleRequiredField(DefaultContexts.Save)]
-        public virtual string Title { get; set; }
-    }
+        public virtual String Name { get; set; }
+        public virtual bool IsGlobal { get; set; }
+        public virtual Product Product { get; set; }
+    }   
 }
