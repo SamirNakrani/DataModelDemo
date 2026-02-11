@@ -5,6 +5,13 @@
       <Action Id="DemoTask.MarkCompleted" ValidationContexts="MarkCompleted" />
     </Actions>
   </ActionDesign>
+  <BOModel>
+    <Class Name="DataModelDemo.Module.BusinessObjects.DemoTask">
+      <OwnMembers>
+        <Member Name="Description" PropertyEditorType="DataModelDemo.Blazor.Server.Editors.CustomStringPropertyEditor" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
   <NavigationItems NavigationStyle="Accordion" />
   <Options UIType="TabbedMDI" FormStyle="Ribbon" RestoreTabbedMdiLayout="True" ShowTabImage="True" VirtualScrollingEnabled="True" />
   <SchemaModules>
@@ -15,4 +22,38 @@
       <RuleCriteria Id="@32c26469-bf56-4d46-a69b-70f3fbe87a64" Criteria="Status != 'NotStarted'" TargetType="DataModelDemo.Module.BusinessObjects.DemoTask" TargetContextIDs="Save" IsNewNode="True" />
     </Rules>
   </Validation>
+  <Views>
+    <DetailView Id="DemoTask_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" ShowCaption="False" Index="0" RelativeSize="29.753265602322205" IsNewNode="True" Removed="True">
+            <LayoutGroup Id="DemoTask" ShowCaption="True" Caption="Demo Task" Direction="Horizontal" Index="0" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="DemoTask_col1" ShowCaption="False" Index="0" RelativeSize="67.69690927218345" IsNewNode="True">
+                <LayoutItem Id="DateCompleted" ViewItem="DateCompleted" Index="0" RelativeSize="19.27710843373494" IsNewNode="True" />
+                <LayoutItem Id="Subject" ViewItem="Subject" Index="1" RelativeSize="14.457831325301205" IsNewNode="True" />
+                <LayoutItem Id="DueDate" ViewItem="DueDate" Index="2" RelativeSize="14.457831325301205" IsNewNode="True" />
+                <LayoutItem Id="StartDate" ViewItem="StartDate" Index="3" RelativeSize="14.457831325301205" IsNewNode="True" />
+                <LayoutItem Id="Description" ViewItem="Description" Index="4" RelativeSize="37.34939759036145" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="DemoTask_col2" ShowCaption="False" Index="1" RelativeSize="32.30309072781655" IsNewNode="True">
+                <LayoutItem Id="PercentCompleted" ViewItem="PercentCompleted" Index="0" RelativeSize="19.27710843373494" IsNewNode="True" />
+                <LayoutItem Id="Employee" ViewItem="Employee" Index="1" RelativeSize="14.457831325301205" IsNewNode="True" />
+                <LayoutItem Id="Status" ViewItem="Status" Index="2" RelativeSize="14.457831325301205" IsNewNode="True" />
+                <LayoutItem Id="Priority" ViewItem="Priority" Index="3" RelativeSize="51.80722891566265" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="SizeableEditors" Caption="Description" RelativeSize="70.2467343976778" Index="1">
+            <LayoutItem Id="Description" ViewItem="Description" Index="0" RelativeSize="100" Removed="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="DemoTask_ListView" IsGroupPanelVisible="True" ShowAutoFilterRow="True">
+      <Columns>
+        <ColumnInfo Id="Subject" SortIndex="-1" SortOrder="None" />
+        <ColumnInfo Id="Employee" SortIndex="0" SortOrder="Descending" />
+      </Columns>
+    </ListView>
+  </Views>
 </Application>

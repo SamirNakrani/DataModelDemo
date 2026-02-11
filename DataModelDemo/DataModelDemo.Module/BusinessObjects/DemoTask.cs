@@ -91,15 +91,7 @@ namespace DataModelDemo.Module.BusinessObjects
         [ImageName("State_Task_Completed")]
         Completed
     }
-    public enum Priority
-    {
-        [ImageName("State_Priority_Low")]
-        Low,
-        [ImageName("State_Priority_Normal")]
-        Normal,
-        [ImageName("State_Priority_High")]
-        High
-    }
+   
 
     public enum Priority
     {
