@@ -3,7 +3,9 @@
   <BOModel>
     <Class Name="DataModelDemo.Module.BusinessObjects.DemoTask">
       <OwnMembers>
-        <Member Name="DueDate" DisplayFormat="D" />
+		  <Member Name="Subject"
+	 PropertyEditorType="DataModelDemo.Blazor.Server.Editors.CustomStringPropertyEditor" />
+		  <Member Name="DueDate" DisplayFormat="D" />
         <Member Name="PercentCompleted" DisplayFormat="{0:N0}%" />
       </OwnMembers>
     </Class>
@@ -29,7 +31,7 @@
         <LayoutGroup Id="Main" RelativeSize="100">
           <LayoutGroup Id="SimpleEditors" RelativeSize="32.61231281198003">
             <LayoutGroup Id="Employee" RelativeSize="100">
-              <LayoutGroup Id="Employee_col1" RelativeSize="49.95083579154375">
+              <LayoutGroup Id="Employee_col1" RelativeSize="49.852507374631266">
                 <LayoutItem Id="FirstName" RelativeSize="20" />
                 <LayoutItem Id="LastName" RelativeSize="15" />
                 <LayoutItem Id="MiddleName" RelativeSize="15" />
@@ -37,7 +39,7 @@
                 <LayoutItem Id="TitleOfCourtesy" RelativeSize="15" />
                 <LayoutItem Id="FullName" ViewItem="FullName" Index="5" RelativeSize="20" IsNewNode="True" Removed="True" />
               </LayoutGroup>
-              <LayoutGroup Id="Employee_col2" RelativeSize="50.04916420845625">
+              <LayoutGroup Id="Employee_col2" RelativeSize="50.147492625368734">
                 <LayoutItem Id="DisplayName" RelativeSize="20" />
                 <LayoutItem Id="Email" RelativeSize="15" />
                 <LayoutItem Id="WebPageAddress" RelativeSize="15" />
@@ -47,14 +49,39 @@
               </LayoutGroup>
             </LayoutGroup>
           </LayoutGroup>
-          <LayoutGroup Id="SizeableEditors" RelativeSize="33.61064891846922">
-            <LayoutItem Id="Notes" RelativeSize="100" />
+          <LayoutGroup Id="SizeableEditors" ShowCaption="False" Caption="Notes" Index="1" RelativeSize="22.296173044925126" IsNewNode="True" Removed="True">
+            <LayoutItem Id="Notes" ViewItem="Notes" Index="0" RelativeSize="100" IsNewNode="True" />
           </LayoutGroup>
-          <LayoutGroup Id="DemoTasks_Group" Direction="Vertical" RelativeSize="33.77703826955075">
-            <LayoutItem Id="DemoTasks" RelativeSize="100" />
+          <LayoutGroup Id="Auto7e23b4a3-618a-4947-a240-06146ba6d210" ShowCaption="False" Caption="" Direction="Horizontal" Index="2" RelativeSize="3.9933444259567388" IsNewNode="True">
+            <LayoutItem Id="ID" ViewItem="ID" Index="0" RelativeSize="49.95187680461983" IsNewNode="True" />
+            <LayoutItem Id="Item1" Index="1" RelativeSize="50.04812319538017" IsNewNode="True" />
+          </LayoutGroup>
+          <LayoutGroup Id="DemoTasks_Group" ShowCaption="True" Caption="Demo Tasks" Index="3" RelativeSize="41.098169717138106" IsNewNode="True" Removed="True">
+            <LayoutItem Id="DemoTasks" ViewItem="DemoTasks" Index="0" RelativeSize="100" IsNewNode="True" />
           </LayoutGroup>
         </LayoutGroup>
       </Layout>
     </DetailView>
+    <ListView Id="Employee_ListView" IsGroupPanelVisible="True" MasterDetailMode="ListViewAndDetailView" NewItemRowPosition="Top" AllowEdit="True">
+      <Columns>
+        <ColumnInfo Id="Department" SortOrder="None" GroupIndex="-1" Index="-1" />
+        <ColumnInfo Id="FullName" SortIndex="-1" SortOrder="None" />
+        <ColumnInfo Id="FirstName" SortIndex="-1" SortOrder="Ascending" GroupIndex="0" />
+        <ColumnInfo Id="LastName" SortIndex="0" SortOrder="Ascending" />
+        <ColumnInfo Id="Position" SortOrder="None" GroupIndex="-1" Index="3" />
+        <ColumnInfo Id="MiddleName" Index="4" />
+        <ColumnInfo Id="Birthday" Index="5" />
+        <ColumnInfo Id="TitleOfCourtesy" Index="6" />
+        <ColumnInfo Id="DisplayName" Index="7" />
+        <ColumnInfo Id="Email" SortOrder="Ascending" GroupIndex="1" Index="8" />
+        <ColumnInfo Id="WebPageAddress" Index="9" />
+        <ColumnInfo Id="Manager" Index="10" />
+      </Columns>
+      <Filters>
+        <Filter Id="Developers" Caption="Developers" Criteria="[Position.Title] = 'Developer'" IsNewNode="True" />
+        <Filter Id="Development Department Employees" Caption="Development Department Employees" Criteria="[Department.Title] = 'Development Department'" IsNewNode="True" />
+        <Filter Id="Employee " Caption="Employee " Criteria="" IsNewNode="True" />
+      </Filters>
+    </ListView>
   </Views>
 </Application>
