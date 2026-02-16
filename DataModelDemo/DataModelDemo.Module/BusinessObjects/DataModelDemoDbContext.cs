@@ -39,8 +39,12 @@ namespace DataModelDemo.Module.BusinessObjects
             modelBuilder.UsePropertyAccessMode(PropertyAccessMode.PreferFieldDuringConstruction);
             modelBuilder.Entity<DemoTask>()
                 .HasOne(t => t.Employee)
-                .WithMany(e => e.DemoTasks)
+                .WithMany(e => e.DemoTasks)     
                 .IsRequired(false);
+
+            modelBuilder.Entity<Employee>()
+                .HasIndex(e => e.Email)
+                .IsUnique();
 
         }
 

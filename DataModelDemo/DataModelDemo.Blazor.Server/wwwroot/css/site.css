@@ -29,3 +29,13 @@ app {
     height: 100%;
     z-index: 100001;
 }
+
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+}
+
+.header {
+    background-color: var(--primary-color);
+    color: white;
+}

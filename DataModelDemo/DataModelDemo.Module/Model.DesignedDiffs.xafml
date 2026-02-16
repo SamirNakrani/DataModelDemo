@@ -3,9 +3,7 @@
   <BOModel>
     <Class Name="DataModelDemo.Module.BusinessObjects.DemoTask">
       <OwnMembers>
-		  <Member Name="Subject"
-	 PropertyEditorType="DataModelDemo.Blazor.Server.Editors.CustomStringPropertyEditor" />
-		  <Member Name="DueDate" DisplayFormat="D" />
+        <Member Name="DueDate" DisplayFormat="D" />
         <Member Name="PercentCompleted" DisplayFormat="{0:N0}%" />
       </OwnMembers>
     </Class>
