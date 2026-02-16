@@ -69,6 +69,8 @@ namespace DataModelDemo.Blazor.Server
                         // options.UseConnectionString(connectionString);
                     })
                     .AddNonPersistent();
+               
+
             });
         }
 

@@ -40,7 +40,6 @@ namespace DataModelDemo.Module.BusinessObjects
 
         private TaskStatus status;  
 
-        // Reference back to Employee - establishes the relationship
         public virtual Employee Employee { get; set; }
 
         public virtual TaskStatus Status

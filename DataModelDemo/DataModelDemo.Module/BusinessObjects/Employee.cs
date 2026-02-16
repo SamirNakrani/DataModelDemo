@@ -48,7 +48,9 @@ namespace DataModelDemo.Module.BusinessObjects
 
         public static String FullNameFormat = "{FirstName} {MiddleName} {LastName}";
 
+
         [FieldSize(255)]
+        [RuleUniqueValue]
         public virtual String Email { get; set; }
 
         [RuleRegularExpression(@"^(https?:\/\/)?([\w\-]+\.)+[\w\-]+(\/[\w\-._~:/?#[\]@!$&'()*+,;=]*)?$",CustomMessageTemplate = @"Invalid website URL.")]
@@ -62,6 +64,8 @@ namespace DataModelDemo.Module.BusinessObjects
 
         [DataSourceProperty("Department.Employees", DataSourcePropertyIsNullMode.SelectAll), DataSourceCriteria("Position.Title = 'Manager'")]
         public virtual Employee Manager { get; set; }
+        public virtual IList<EmployeeSkill> Skills { get; set; }
+       = new ObservableCollection<EmployeeSkill>();
     }
     public enum TitleOfCourtesy
     {

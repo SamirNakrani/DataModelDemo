@@ -5,30 +5,19 @@ using DevExpress.ExpressApp.Blazor.Editors;
 
 namespace DataModelDemo.Blazor.Server.Controllers
 {
-    public partial class DateEditCalendarController : ObjectViewController<DetailView, Employee>
+    public class DateCalendarController : ViewController<DetailView>
     {
-        protected override void OnViewControlsCreated()
+        protected override void OnActivated()
         {
-            base.OnViewControlsCreated();
-
-             var gridListEditor = View.Items
-                .OfType<DxGridListEditor>()
-                .FirstOrDefault();
-
-            if (gridListEditor != null)
-            {
-                gridListEditor.GridModel.ColumnResizeMode = GridColumnResizeMode.ColumnsContainer;
-
-                foreach (DxGridColumnWrapper column in gridListEditor.Columns)
+            base.OnActivated();
+            View.CustomizeViewItemControl<DateTimePropertyEditor>(
+                this,
+                editor =>
                 {
-                    if (column.PropertyName == $"{nameof(Employee.TitleOfCourtesy)}")
-                    {
-                        column.DxGridDataColumnModel.FilterMenuButtonDisplayMode = GridFilterMenuButtonDisplayMode.Never;
-                    }
-                    column.MinWidth = 50;
-                }
-            }
+                    editor.ComponentModel.PickerDisplayMode = DevExpress.Blazor.DatePickerDisplayMode.ScrollPicker;
+                },
+                [nameof(Employee.Birthday),nameof(DemoTask.DueDate)]
+            );
         }
     }
 }
-
